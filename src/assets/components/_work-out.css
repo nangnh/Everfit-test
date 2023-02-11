@@ -1,0 +1,49 @@
+.work-out-wrapper {
+  width: 165px;
+  background-color: var(--bg-group-container);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.work-out-wrapper__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.work-out-wrapper__title {
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 130px;
+}
+
+.work-out-wrapper__button {
+  height: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.work-out-wrapper__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}

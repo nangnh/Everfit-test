@@ -1,0 +1,52 @@
+.exercises-wrapper {
+  height: 45px;
+  background-color: white;
+  border: 1px solid var(--exercises-color-border);
+  border-radius: 3px;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.exercises-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.exercises-wrapper__name {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: right;
+  color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.exercises-wrapper__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.exercises-wrapper__number-of-sets {
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: right;
+  color: #919CAD;
+}
+
+.exercises-wrapper__information {
+  width: 115px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: right;
+  color: #95A6B7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

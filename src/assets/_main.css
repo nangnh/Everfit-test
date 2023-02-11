@@ -1,0 +1,17 @@
+:root {
+  --bg-day-container: #F3F5F8;
+  --color-day: #6A7988;
+  --color-border: rgba(34, 36, 38, 0.15);
+  --bg-group-container: rgba(255, 255, 255, 0.8);
+  --color-text: #5A57CB;
+  --exercises-color-border: #DFDFDF;
+}
+@import "./_layout.css";
+
+/* pages */
+@import "./pages/_manage-working.css";
+
+/* components */
+@import "./components/_day-container.css";
+@import "./components/_work-out.css";
+@import "./components/_exercises.css";
