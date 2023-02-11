@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 import { DayWorkITF, ManageWorkingITF, WorkoutITF } from "../containers/ManageWorking/interfaces"
 import Workout from "./workout"
 
@@ -5,6 +8,8 @@ const DayContainer = function(props: ManageWorkingITF) {
   const { title, date, dayWorks } = props
   const dateTime = date && date.getDate()
   const isCurrent = dateTime === new Date().getDate()
+
+  const [workouts, setWorkOuts] = useState<WorkoutITF[]>([])
 
   const showWorkouts = () => {
     if (!dayWorks) return null
