@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useEffect, useState } from "react";
+import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 
-import { DayWorkITF, ManageWorkingITF, WorkoutITF } from "../containers/ManageWorking/interfaces"
+import { ManageWorkingITF, WorkoutITF } from "../containers/ManageWorking/interfaces"
+import { reorder } from "../utils/helpers";
 import Workout from "./workout"
 
 const DayContainer = function(props: ManageWorkingITF) {
@@ -10,22 +11,55 @@ const DayContainer = function(props: ManageWorkingITF) {
   const isCurrent = dateTime === new Date().getDate()
 
   const [workouts, setWorkOuts] = useState<WorkoutITF[]>([])
+  
+  useEffect(() => {
+    if (dayWorks) {
+      const { workouts: data } = dayWorks
+      setWorkOuts(data)
+    }
+  }, [dayWorks])
 
-  const showWorkouts = () => {
-    if (!dayWorks) return null
-    return (
-      <div>
-        {
-          dayWorks?.map((item: DayWorkITF) => {
-            const { workouts } = item
-            return workouts.map((workout: WorkoutITF) => (
-              <Workout key={item.id} workout={workout}/>
-            ))
-          })
-        }
-      </div>
-    )
+  const onDragEnd = (result: DropResult) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const items: WorkoutITF[] = reorder(
+      workouts,
+      result.source.index,
+      result.destination.index
+    );
+
+    setWorkOuts([...items]);
   }
+
+  const showWorkouts = () => (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="droppable-day">
+        {(provided) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+          >
+            {workouts.map((item, index) => (
+              <Draggable key={item.id} draggableId={item.id} index={index}>
+                {(provided) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    <Workout key={item.id} workout={item}/>
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  )
 
   return (
     <div className="day-container-wrapper">

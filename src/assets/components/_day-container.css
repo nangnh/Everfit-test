@@ -37,6 +37,7 @@
 
 .day-container-wrapper__day-month--active {
   color: var(--color-text);
+  font-weight: 700;
 }
 
 /* .day-container-wrapper__list {

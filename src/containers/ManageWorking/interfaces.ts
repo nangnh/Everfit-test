@@ -5,7 +5,7 @@ export interface ManageWorkingITF {
   title: string
   date?: Date
   children?: React.ReactNode
-  dayWorks?: DayWorkITF[]
+  dayWorks?: DayWorkITF
 }
 
 export interface ExercisesITF {

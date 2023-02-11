@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 
 import Exercises from './exercises'
 import { ExercisesITF, WorkoutITF } from '../containers/ManageWorking/interfaces'
@@ -30,7 +30,7 @@ const Workout = function(props: { workout: WorkoutITF }) {
     console.log('>handleMore')
   }
 
-  const onDragEnd = (result: any) => {
+  const onDragEnd = (result: DropResult) => {
     if (!result.destination) {
       return;
     }
@@ -46,7 +46,7 @@ const Workout = function(props: { workout: WorkoutITF }) {
 
   const showExercises = () => (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
+      <Droppable droppableId="droppable-exercises">
         {(provided) => (
           <div
             {...provided.droppableProps}
@@ -71,10 +71,6 @@ const Workout = function(props: { workout: WorkoutITF }) {
       </Droppable>
     </DragDropContext>
   )
-
-  // const showExercises = () => (
-  //   exercises.map((data: ExercisesITF) => <Exercises key={data.id} {...data}/>)
-  // )
 
   return (
     <div className="work-out-wrapper">

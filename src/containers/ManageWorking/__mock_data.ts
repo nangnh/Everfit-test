@@ -2,34 +2,12 @@ import { DayWorkITF } from "./interfaces";
 
 export const data : DayWorkITF[] = [
   {
-    id: 'work-1',
-    dateTime: 'Sat Feb 11 2023 12:08:58 GMT+0700 (Indochina Time)',
-    workouts: [{
-      id: 'work-out-1',
-      name: 'CHEST DAY - WITH ARM',
-      exercises: [
-        {
-          id: 'exercises-1',
-          name: 'Bench Press Model',
-          information: '50 Ib x 10',
-          num_sets: 3
-        },
-        {
-          id: 'exercises-2',
-          name: 'Exercises C',
-          information: '50 Ib x 10',
-          num_sets: 3
-        },
-      ]
-    }]
-  },
-  {
     id: 'work-2',
     dateTime: 'Sat Feb 11 2023 12:08:58 GMT+0700 (Indochina Time)',
     workouts: [
       {
-        id: 'work-out-2-1',
-        name: 'LEG DAY',
+        id: 'work-out-2',
+        name: 'ARM DAY',
         exercises: [
           {
             id: 'exercises-1',
@@ -49,6 +27,24 @@ export const data : DayWorkITF[] = [
             information: '50 Ib x 10',
             num_sets: 3
           }
+        ]
+      },
+      {
+        id: 'work-out-1',
+        name: 'CHEST DAY - WITH ARM',
+        exercises: [
+          {
+            id: 'exercises-1-1',
+            name: 'Bench Press Model ABC',
+            information: '50 Ib x 10',
+            num_sets: 3
+          },
+          {
+            id: 'exercises-1-2',
+            name: 'Exercises C',
+            information: '50 Ib x 10',
+            num_sets: 3
+          },
         ]
       }
     ]
